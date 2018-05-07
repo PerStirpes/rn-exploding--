@@ -1,7 +1,7 @@
-import React from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import React from "react";
+import { Animated, StyleSheet, View } from "react-native";
 
-const Heart = ({ filled, style, ...props }) => {
+export default (Heart = ({ filled, style, ...props }) => {
   const centerNonFilled = (
     <View style={[StyleSheet.absolutFill, styles.fit]}>
       <View styles={[styles.leftHeart, styles.heartShape, styles.emptyFill]} />
@@ -18,42 +18,40 @@ const Heart = ({ filled, style, ...props }) => {
       {!filled && centerNonFilled}
     </Animated.View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   heart: {
     widith: 50,
     height: 50,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent"
   },
   heartShape: {
     width: 30,
     height: 45,
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     borderTopLeftRadius: 15,
-    borderToRightRadius: 15,
+    borderToRightRadius: 15
   },
   filledHeart: {
-    backgroundColor: '#e31745',
+    backgroundColor: "#e31745"
   },
   fit: {
-    transform: [{ scale: 0.9 }],
+    transform: [{ scale: 0.9 }]
   },
   emptyFill: {
-    backgroundColor: '#FFF',
+    backgroundColor: "#FFF"
   },
   empty: {
-    backgroundColor: '#ccc',
+    backgroundColor: "#ccc"
   },
   leftHeart: {
-    transform: [{ rotate: '-45deg' }],
-    left: 5,
+    transform: [{ rotate: "-45deg" }],
+    left: 5
   },
   rightHeart: {
-    transform: [{ rotate: '45deg' }],
-    right: 5,
-  },
+    transform: [{ rotate: "45deg" }],
+    right: 5
+  }
 });
-
-export default heart;
