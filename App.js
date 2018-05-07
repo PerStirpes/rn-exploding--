@@ -27,7 +27,9 @@ export default class App extends React.Component {
   }
 
   triggerLike() {
-    this.setState({ liked: !this.state.like });
+    this.setState({
+      liked: !this.state.liked
+    });
 
     Animated.spring(this.state.scale, {
       toValue: 2,
@@ -38,12 +40,24 @@ export default class App extends React.Component {
   }
 
   render() {
+    const bouncyHeart = this.state.scale.interpolate({
+      inputRange: [0, 1, 2],
+      outputRange: [1, 0.8, 1]
+    });
+
+    const heartButtonStyle = {
+      transform: [
+        {
+          scale: bouncyHeart
+        }
+      ]
+    };
     return (
       <View style={styles.container}>
         <View>
-          <TouchableWithoutFeedback onPress={() => this.triggerLike}>
-            <Animated.View>
-              <Heart />Open up App.js to start working on your app!
+          <TouchableWithoutFeedback onPress={this.triggerLike}>
+            <Animated.View style={heartButtonStyle}>
+              <Heart filled={this.state.liked} />
             </Animated.View>
           </TouchableWithoutFeedback>
         </View>
