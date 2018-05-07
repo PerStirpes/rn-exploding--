@@ -22,7 +22,7 @@ export default (Heart = ({ filled, style, ...props }) => {
 
 const styles = StyleSheet.create({
   heart: {
-    widith: 50,
+    width: 50,
     height: 50,
     backgroundColor: "transparent"
   },
@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 0,
     borderTopLeftRadius: 15,
-    borderToRightRadius: 15
+    borderTopRightRadius: 15
   },
   filledHeart: {
     backgroundColor: "#e31745"
