@@ -9,24 +9,24 @@ import {
 import Heart from "./heart";
 
 export default class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      liked: false,
-      scale: new Animated.Value(0),
-      animations: [
-        new Animated.Value(0),
-        new Animated.Value(0),
-        new Animated.Value(0),
-        new Animated.Value(0),
-        new Animated.Value(0),
-        new Animated.Value(0)
-      ]
-    };
-    this.triggerLike = this.triggerLike.bind(this);
-  }
+  state = {
+    liked: false,
+    scale: new Animated.Value(0),
+    animations: [
+      new Animated.Value(0),
+      new Animated.Value(0),
+      new Animated.Value(0),
+      new Animated.Value(0),
+      new Animated.Value(0),
+      new Animated.Value(0)
+    ]
+  };
 
-  triggerLike() {
+  triggerLike = () => {
+    this.triggerLike;
+  };
+
+  triggerLike = () => {
     this.setState({
       liked: !this.state.liked
     });
@@ -37,7 +37,7 @@ export default class App extends React.Component {
     }).start(() => {
       this.state.scale.setValue(0);
     });
-  }
+  };
 
   render() {
     const bouncyHeart = this.state.scale.interpolate({
