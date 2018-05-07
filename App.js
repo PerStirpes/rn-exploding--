@@ -1,12 +1,12 @@
-import React from "react";
+import React from "react"
 import {
   Animated,
   StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View
-} from "react-native";
-import Heart from "./heart";
+} from "react-native"
+import Heart from "./heart"
 
 export default class App extends React.Component {
   state = {
@@ -20,30 +20,30 @@ export default class App extends React.Component {
       new Animated.Value(0),
       new Animated.Value(0)
     ]
-  };
+  }
 
   triggerLike = () => {
-    this.triggerLike;
-  };
+    this.triggerLike
+  }
 
   triggerLike = () => {
     this.setState({
       liked: !this.state.liked
-    });
+    })
 
     Animated.spring(this.state.scale, {
       toValue: 2,
       friction: 3
     }).start(() => {
-      this.state.scale.setValue(0);
-    });
-  };
+      this.state.scale.setValue(0)
+    })
+  }
 
   render() {
     const bouncyHeart = this.state.scale.interpolate({
       inputRange: [0, 1, 2],
       outputRange: [1, 0.8, 1]
-    });
+    })
 
     const heartButtonStyle = {
       transform: [
@@ -51,7 +51,7 @@ export default class App extends React.Component {
           scale: bouncyHeart
         }
       ]
-    };
+    }
     return (
       <View style={styles.container}>
         <View>
@@ -62,7 +62,7 @@ export default class App extends React.Component {
           </TouchableWithoutFeedback>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   }
-});
+})
